@@ -1,0 +1,206 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
+
+:root {
+  --green-deep: #00b450;   /* announcement bar 1 / page ground */
+  --green-page: #00b451;   /* body background */
+  --green-light: #96d68a;  /* announcement bar 2 */
+  --ink: #0a0a0a;
+  --sidebar-w: 300px;
+  --heading-font: 'Oswald', 'Pretendard', -apple-system, sans-serif; /* stand-in for the site's licensed
+                                                                          "Alternate Gothic Condensed" webfont,
+                                                                          which cannot be redistributed here */
+  --body-font: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--green-page);
+  font-family: var(--body-font);
+  overflow-x: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* Announcement bars */
+.ann-bar {
+  width: 100%;
+  text-align: center;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 12px;
+  padding: 10px 0;
+  color: var(--ink);
+}
+.ann-bar--dark  { background: var(--green-deep); }
+.ann-bar--light { background: var(--green-light); }
+
+/* Non-affiliation disclosure — small, unobtrusive */
+.disclosure {
+  width: 100%;
+  text-align: center;
+  font-family: var(--body-font);
+  font-size: 11px;
+  color: rgba(0,0,0,0.55);
+  background: var(--green-page);
+  padding: 4px 8px;
+}
+
+/* Hero row: sidebar + media */
+.hero-row {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-height: 60vh;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: 0 0 var(--sidebar-w);
+  background: var(--green-page);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.badge {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 28px;
+}
+.badge__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: spin 12s linear infinite;
+}
+.badge__leaf {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 22px; height: 22px;
+  transform: translate(-50%, -50%);
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .badge__ring { animation: none; }
+}
+
+.gnb ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gnb li + li { margin-top: 6px; }
+.gnb a {
+  display: inline-block;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.05;
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.gnb a:hover,
+.gnb a:focus-visible {
+  text-decoration: underline;
+  outline-offset: 4px;
+}
+
+.ig-link {
+  margin-top: 28px;
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+}
+.ig-link img { width: 100%; height: 100%; }
+
+.hero-media {
+  flex: 1 1 auto;
+  background: #000;
+  display: flex;
+}
+.hero-media__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.hero-media__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Giant wordmark banner */
+.wordmark-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: var(--green-page);
+  line-height: 0.82;
+  padding: 0 0 1vw;
+}
+.wordmark {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  font-size: 15.4vw;
+  letter-spacing: -0.01em;
+  transform: scaleX(1.06);
+  transform-origin: left;
+}
+.wordmark sup {
+  font-size: 0.28em;
+  top: -0.5em;
+}
+
+/* Responsive: collapse sidebar under hero on narrow viewports (no mobile
+   evidence supplied — layout adapted, content preserved) */
+@media (max-width: 900px) {
+  .hero-row { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+  }
+  .badge { margin-bottom: 0; width: 44px; height: 44px; }
+  .gnb { width: 100%; order: 3; }
+  .gnb ul { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+  .gnb a { font-size: 20px; }
+  .ig-link { margin-top: 0; }
+  .hero-media__frame { aspect-ratio: 4 / 3; }
+  .wordmark { font-size: 17vw; }
+}
+
+@media (max-width: 480px) {
+  .wordmark { font-size: 15.5vw; }
+}

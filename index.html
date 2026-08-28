@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SUPER MATCHA — 슈퍼말차 (BotBonnie 데모 프로토타입)</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Announcement bars -->
+  <div class="ann-bar ann-bar--dark">NAVER STORE</div>
+  <div class="ann-bar ann-bar--light">KAKAO PRESENT</div>
+
+  <!-- Non-affiliation disclosure -->
+  <div class="disclosure">BotBonnie 데모용 프로토타입 · 슈퍼말차(SUPER MATCHA)와 공식 제휴 없음</div>
+
+  <div class="hero-row">
+    <!-- Left sidebar -->
+    <aside class="sidebar">
+      <div class="badge" aria-hidden="true">
+        <img class="badge__ring" src="https://www.supermatcha.com/img/symbol_circle.svg" alt="" />
+        <img class="badge__leaf" src="https://www.supermatcha.com/img/symbol.svg" alt="" />
+      </div>
+
+      <nav class="gnb" aria-label="주 메뉴">
+        <ul>
+          <li><a href="#" aria-disabled="true">BRAND</a></li>
+          <li><a href="#" aria-disabled="true">MATCHA</a></li>
+          <li><a href="#" aria-disabled="true">BORI</a></li>
+          <li><a href="#" aria-disabled="true">STORE</a></li>
+          <li><a href="#" aria-disabled="true">MENU</a></li>
+          <li><a href="#" aria-disabled="true">PRODUCT</a></li>
+          <li><a href="#" aria-disabled="true">ARCHIVE</a></li>
+        </ul>
+      </nav>
+
+      <a class="ig-link" href="https://www.instagram.com/supermatcha.official" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="https://www.supermatcha.com/img/icon_instagram.svg" alt="" />
+      </a>
+    </aside>
+
+    <!-- Hero media -->
+    <div class="hero-media">
+      <div class="hero-media__frame">
+        <iframe
+          src="https://player.vimeo.com/video/1174376045?background=1&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0"
+          title="SUPER BORI"
+          frameborder="0"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Giant wordmark banner -->
+  <div class="wordmark-wrap" aria-hidden="true">
+    <span class="wordmark">SUPER MATCHA<sup>TM</sup></span>
+  </div>
+  <h1 class="visually-hidden">슈퍼말차 SUPER MATCHA — 100% 유기농 세레모니얼 등급 말차</h1>
+
+  <script src="script.js"></script>
+
+  <!-- BotBonnie WebChat (Phase 2) -->
+  <script>
+    // Never place BotBonnie API tokens, API secrets, or CRM keys in static frontend code.
+    const BOTBONNIE_PAGE_ID = "page-0b03ce5129d94e099210a86c";
+
+    window.BBAsyncInit = function () {
+      BB.init({
+        appId: BOTBONNIE_PAGE_ID
+      });
+    };
+  </script>
+  <script async type="text/javascript" src="https://asset.botbonnie.com/sdk/sdk.js"></script>
+</body>
+</html>
