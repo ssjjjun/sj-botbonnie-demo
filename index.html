@@ -1,78 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SUPER MATCHA — 슈퍼말차 (BotBonnie 데모 프로토타입)</title>
-<link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>에스테이트 | 홈페이지 목업</title>
+<meta name="description" content="에스테이트 홈페이지의 공개 메뉴 및 본문 구성을 참고한 로컬 목업">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231b55c5'/%3E%3Ctext x='10' y='29' fill='white' font-size='28' font-family='Arial' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E">
+<style>
+/* Original live layout/assets could not be inspected (403). Visual design below is an approximation.
+   Source: https://est.so/ — publicly indexed home-page content, inspected 2026-10-01.
+   No production forms, tracking SDKs, or backend calls are included. */
+:root{--blue:#2158ca;--navy:#142849;--ink:#1d2635;--muted:#697480;--line:#e0e5ed;--pad:clamp(24px,7vw,120px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:94px}body{margin:0;color:var(--ink);font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;line-height:1.7}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible{outline:3px solid #e7ac38;outline-offset:5px}header{position:fixed;z-index:50;inset:0 0 auto;background:#fff;border-bottom:1px solid var(--line);height:94px;display:flex;align-items:center;justify-content:space-between;padding:0 4vw}.brand{display:flex;align-items:center;gap:11px}.brand strong{font-size:42px;color:var(--blue);letter-spacing:-3px;font-weight:900;line-height:1}.brand span{font-size:14px;font-weight:700;line-height:1.4}.nav{display:flex;align-items:center;gap:clamp(18px,2.1vw,40px);font-size:15px;font-weight:700}.nav details{position:relative}.nav summary{list-style:none;cursor:pointer;padding:30px 0}.nav summary::-webkit-details-marker{display:none}.dropdown{position:absolute;left:-25px;top:75px;min-width:175px;background:#fff;padding:16px 22px;box-shadow:0 12px 30px #14284924;border-top:3px solid var(--blue)}.dropdown a{display:block;white-space:nowrap;padding:5px 0;font-weight:500}.nav a:hover,.dropdown a:hover{color:var(--blue)}.menu{display:none;border:0;background:none;font-size:25px}main{padding-top:94px}.hero{position:relative;min-height:calc(100svh - 94px);overflow:hidden;color:#fff;background:linear-gradient(125deg,#102c57,#235dc0 68%,#668fd4);display:flex;align-items:center;padding:90px var(--pad) 120px}.hero:before{content:"";position:absolute;width:65vw;height:65vw;right:-30vw;top:-25vw;border:1px solid #ffffff28;border-radius:50%;box-shadow:0 0 0 70px #ffffff07,0 0 0 140px #ffffff05}.hero-copy{position:relative;max-width:920px}.eyebrow{font-size:17px;letter-spacing:3px;font-weight:600;margin:0 0 24px}.hero h1{font-size:clamp(34px,4.8vw,72px);font-weight:700;letter-spacing:-.05em;line-height:1.35;margin:0 0 30px;white-space:pre-line}.hero-desc{font-size:clamp(17px,1.4vw,21px);color:#e1e9fb;max-width:790px;white-space:pre-line}.outline{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:10px 30px;border:1px solid #ffffff7d;margin-top:25px;transition:.2s}.outline:hover{background:#fff;color:var(--navy)}.slider-controls{position:absolute;bottom:56px;left:var(--pad);display:flex;align-items:center;gap:18px}.slider-controls button{color:#fff;background:none;border:1px solid #ffffff70;width:42px;height:42px;font-size:21px}.slider-controls .pause{font-size:14px}.progress{width:110px;height:2px;background:#ffffff40}.progress i{display:block;height:2px;background:white;width:16.666%}.count{font-size:14px;font-variant-numeric:tabular-nums}.scroll-mark{position:absolute;bottom:48px;right:var(--pad);font-size:12px;letter-spacing:4px;writing-mode:vertical-rl}.side-nav{position:fixed;right:27px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:14px}.side-nav a{display:flex;align-items:center;justify-content:flex-end;gap:12px;color:var(--muted);font-size:12px}.side-nav a span{opacity:0}.side-nav a:hover span,.side-nav a.active span{opacity:1}.side-nav a:after{content:"";height:7px;width:7px;border-radius:50%;background:#98a6ba;box-shadow:0 0 0 3px #ffffff90}.side-nav a.active:after{background:var(--blue);box-shadow:0 0 0 4px #dce7ff}section.content{padding:115px var(--pad)}.section-label{color:var(--blue);font-size:17px;letter-spacing:1px;font-weight:700;margin-bottom:20px}h2{font-size:clamp(30px,3.7vw,52px);letter-spacing:-.045em;line-height:1.4;margin:0 0 28px}p{margin:0 0 16px}.lead{color:var(--muted);font-size:18px}.intro{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.metrics{display:grid;grid-template-columns:repeat(4,1fr);margin-top:75px;gap:30px}.metric{border-top:1px solid var(--line);padding-top:24px}.metric strong{display:block;font-size:24px;line-height:1.4;color:var(--blue)}.metric b{display:block;font-size:16px;margin:12px 0}.metric p{font-size:14px;color:var(--muted)}.estate{background:#f5f7fb}.estate-top{display:flex;align-items:end;justify-content:space-between;gap:30px}.text-link{display:inline-block;border-bottom:1px solid var(--ink);padding:7px 0;font-size:15px}.identity-grid{margin-top:55px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.identity-card{background:#fff;min-height:270px;padding:30px 26px;transition:transform .2s,box-shadow .2s}.identity-card:hover{transform:translateY(-6px);box-shadow:0 15px 35px #1428490b}.card-no{font-size:14px;color:var(--blue);display:block;margin-bottom:45px}.identity-card h3{font-size:21px;margin:0 0 16px}.identity-card p{font-size:15px;color:var(--muted)}.business-list{margin-top:50px;border-top:1px solid var(--ink)}.business-row{display:grid;grid-template-columns:65px 1.2fr 1fr auto;gap:24px;align-items:center;padding:36px 0;border-bottom:1px solid var(--line)}.business-row .num{color:#8d98aa;font-size:14px}.business-row h3{font-size:25px;letter-spacing:-.03em;margin:0}.business-row p{font-size:16px;color:var(--muted);margin:0}.business-row a{font-size:14px;border:1px solid #c4ccd9;padding:10px 19px}.business-row a:hover{color:white;background:var(--blue);border-color:var(--blue)}.contact{background:var(--navy);color:#fff}.contact .section-label{color:#93b6ff}.contact-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:80px}.contact dl{margin:0;border-top:1px solid #ffffff30}.contact dl div{display:grid;grid-template-columns:95px 1fr;padding:22px 0;border-bottom:1px solid #ffffff30}.contact dt{color:#95aacb}.contact dd{margin:0;font-size:17px}.contact dd a:hover{text-decoration:underline}footer{padding:50px var(--pad);background:#101b2e;color:#9aa8bf;font-size:13px}.footer-top{display:flex;justify-content:space-between;gap:40px;margin-bottom:30px}.footer-top .brand strong{color:#fff}.footer-top .brand span{color:#fff}.company{max-width:790px}.company p{margin-bottom:8px}.copyright{margin-top:24px;font-size:12px}.family{position:relative;align-self:start}.family summary{list-style:none;width:230px;border:1px solid #536079;padding:11px 18px;cursor:pointer;display:flex;justify-content:space-between}.family summary:after{content:"+"}.family[open] summary:after{content:"−"}.family div{position:absolute;bottom:49px;background:#fff;color:var(--ink);width:100%;padding:14px 18px;box-shadow:0 5px 25px #0003}.family a{display:block;padding:5px 0}.floating{position:fixed;bottom:26px;right:26px;z-index:45;display:flex;flex-direction:column;gap:9px}.floating a,.floating button{border:0;background:var(--blue);color:#fff;padding:13px 18px;font-size:14px;box-shadow:0 4px 15px #14284920}.floating button{background:#fff;color:var(--ink);border:1px solid var(--line)}dialog{border:0;padding:40px;width:min(580px,90vw);color:var(--ink);box-shadow:0 20px 80px #0003}dialog::backdrop{background:#0b172e99}dialog h2{font-size:30px}dialog .close{float:right;background:none;border:0;font-size:25px}dialog p{color:var(--muted)}.demo-note{font-size:12px;color:#8692a7;margin-top:20px}
+@media(max-width:1100px){.nav{gap:17px;font-size:13px}.brand strong{font-size:34px}.brand span{font-size:12px}.side-nav{display:none}.intro{gap:35px}.identity-grid{grid-template-columns:repeat(2,1fr)}.business-row{grid-template-columns:40px 1.1fr 1fr}.business-row a{grid-column:2;justify-self:start}.contact-wrap{gap:35px}}
+@media(max-width:800px){header{height:76px;padding:0 24px}main{padding-top:76px}html{scroll-padding-top:76px}.menu{display:block}.nav{display:none;position:absolute;top:76px;left:0;right:0;max-height:calc(100svh - 76px);overflow:auto;background:#fff;padding:22px 26px;flex-direction:column;align-items:stretch;gap:0;font-size:16px;box-shadow:0 15px 25px #14284918}.nav.open{display:flex}.nav>a,.nav summary{padding:13px 0;border-bottom:1px solid var(--line)}.dropdown{position:static;box-shadow:none;border:0;padding:5px 16px}.hero{min-height:calc(90svh - 76px);padding:65px 24px 130px}.hero h1{font-size:36px}.hero-desc{font-size:17px}.slider-controls{left:24px;bottom:38px}.scroll-mark{right:24px;bottom:38px}section.content{padding:72px 24px}.intro,.contact-wrap{grid-template-columns:1fr;gap:18px}.lead{font-size:16px}.metrics{grid-template-columns:repeat(2,1fr);margin-top:38px}.estate-top{display:block}.identity-grid{gap:13px;margin-top:30px}.identity-card{min-height:250px;padding:24px 18px}.identity-card h3{font-size:19px}.card-no{margin-bottom:27px}.business-row{grid-template-columns:24px 1fr;gap:14px;padding:25px 0}.business-row h3{font-size:22px}.business-row p,.business-row a{grid-column:2}.contact dl{margin-top:20px}.contact dl div{grid-template-columns:75px 1fr}.contact dd{font-size:15px}footer{padding:40px 24px 110px}.footer-top{flex-direction:column;gap:27px}.floating{right:16px;bottom:16px}.floating a,.floating button{font-size:12px;padding:10px 15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
 </head>
 <body>
-
-  <!-- Announcement bars -->
-  <div class="ann-bar ann-bar--dark">NAVER STORE</div>
-  <div class="ann-bar ann-bar--light">KAKAO PRESENT</div>
-
-  <!-- Non-affiliation disclosure -->
-  <div class="disclosure">BotBonnie 데모용 프로토타입 · 슈퍼말차(SUPER MATCHA)와 공식 제휴 없음</div>
-
-  <div class="hero-row">
-    <!-- Left sidebar -->
-    <aside class="sidebar">
-      <div class="badge" aria-hidden="true">
-        <img class="badge__ring" src="https://www.supermatcha.com/img/symbol_circle.svg" alt="" />
-        <img class="badge__leaf" src="https://www.supermatcha.com/img/symbol.svg" alt="" />
-      </div>
-
-      <nav class="gnb" aria-label="주 메뉴">
-        <ul>
-          <li><a href="#" aria-disabled="true">BRAND</a></li>
-          <li><a href="#" aria-disabled="true">MATCHA</a></li>
-          <li><a href="#" aria-disabled="true">BORI</a></li>
-          <li><a href="#" aria-disabled="true">STORE</a></li>
-          <li><a href="#" aria-disabled="true">MENU</a></li>
-          <li><a href="#" aria-disabled="true">PRODUCT</a></li>
-          <li><a href="#" aria-disabled="true">ARCHIVE</a></li>
-        </ul>
-      </nav>
-
-      <a class="ig-link" href="https://www.instagram.com/supermatcha.official" target="_blank" rel="noopener" aria-label="Instagram">
-        <img src="https://www.supermatcha.com/img/icon_instagram.svg" alt="" />
-      </a>
-    </aside>
-
-    <!-- Hero media -->
-    <div class="hero-media">
-      <div class="hero-media__frame">
-        <iframe
-          src="https://player.vimeo.com/video/1174376045?background=1&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0"
-          title="SUPER BORI"
-          frameborder="0"
-          allow="autoplay; fullscreen"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Giant wordmark banner -->
-  <div class="wordmark-wrap" aria-hidden="true">
-    <span class="wordmark">SUPER MATCHA<sup>TM</sup></span>
-  </div>
-  <h1 class="visually-hidden">슈퍼말차 SUPER MATCHA — 100% 유기농 세레모니얼 등급 말차</h1>
-
-  <script src="script.js"></script>
-
-  <!-- BotBonnie WebChat (Phase 2) -->
-  <script>
-    // Never place BotBonnie API tokens, API secrets, or CRM keys in static frontend code.
-    const BOTBONNIE_PAGE_ID = "page-0b03ce5129d94e099210a86c";
-
-    window.BBAsyncInit = function () {
-      BB.init({
-        appId: BOTBONNIE_PAGE_ID
-      });
-    };
-  </script>
-  <script async type="text/javascript" src="https://asset.botbonnie.com/sdk/sdk.js"></script>
-</body>
-</html>
+<header>
+ <a href="#main" class="brand" aria-label="에스테이트 홈"><strong>EST</strong><span>에스테이트<br>ESTATE</span></a>
+ <button class="menu" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navigation">☰</button>
+ <nav class="nav" id="navigation" aria-label="주 메뉴">
+  <details><summary>About Us</summary><div class="dropdown"><a href="#about">회사소개</a><a href="#estate" data-detail="ci">CI 소개</a><a href="#estate" data-detail="vision">Vision</a><a href="#business">사업분야</a><a href="#estate" data-detail="organization">조직도</a><a href="#contact">Contact Us</a></div></details>
+  <a href="https://edu.est.so/" target="_blank" rel="noopener">EST 원격평생교육원</a><a href="https://secedu.est.so/" target="_blank" rel="noopener">경비보안교육원</a><a href="https://sec.est.so/" target="_blank" rel="noopener">경비업 컨설팅</a><a href="https://work.est.so/" target="_blank" rel="noopener">미래내일일경험사업</a><a href="https://con.est.so/" target="_blank" rel="noopener">콘텐츠개발연구소</a>
+ </nav>
+</header>
+<aside class="side-nav" aria-label="섹션 이동"><a class="active" href="#main"><span>Main</span></a><a href="#about"><span>About Us</span></a><a href="#estate"><span>Estate</span></a><a href="#business"><span>Business</span></a><a href="#contact"><span>Contact</span></a></aside>
+<main>
+ <section class="hero" id="main" aria-label="메인 슬라이드" aria-roledescription="carousel">
+  <div class="hero-copy"><p class="eyebrow">ESTATE</p><h1 id="hero-title">교육의 즐거움을 제공하는<br>종합 컨설팅 교육기업,<br>에스테이트</h1><p class="hero-desc" id="hero-description">에스테이트는 누구나 학습할 수 있는 환경을 제공합니다</p><a class="outline" id="hero-link" href="#about">자세히 보기</a></div>
+  <div class="slider-controls"><span class="count"><b id="current-slide">01</b> / 06</span><span class="progress"><i id="slide-progress"></i></span><button id="previous" aria-label="이전 슬라이드">‹</button><button id="next" aria-label="다음 슬라이드">›</button><button class="pause" id="pause" aria-label="자동 전환 시작" aria-pressed="false">재생</button></div><span class="scroll-mark">SCROLL DOWN</span>
+ </section>
+ <section class="content" id="about"><div class="intro"><div><div class="section-label">About Us</div><h2>에듀테크 기업으로<br>성장하는 에스테이트</h2></div><p class="lead">에스테이트는 양질의 평생교육 콘텐츠와 Total Learing Platform을 통해 교육의 즐거움을 제공하고 삶을 향상시키는 종합 컨설팅 교육기업입니다.</p></div><div class="metrics"><div class="metric"><strong>Since</strong><b>오랜 운영 노하우</b><p>기술력과 교육 운영 경험</p></div><div class="metric"><strong>Ranked</strong><b>경비보안직무교육</b><p>업계 수강 회원 수 최대</p></div><div class="metric"><strong>TCB Grade</strong><b>우수기업 인증</b><p>SCI평가정보 기술신용평가</p></div><div class="metric"><strong>Contents</strong><b>다양한 교육과정</b><p>양질의 평생교육 콘텐츠</p></div></div></section>
+ <section class="content estate" id="estate"><div class="estate-top"><div><div class="section-label">Estate</div><h2>Get Better Identity</h2><p class="lead">개인과 기업, 국가의 가치와 전문성을 강화합니다.</p></div><a class="text-link" href="#about">자세히 보기</a></div><div class="identity-grid"><a class="identity-card" href="#about"><span class="card-no">01 / INTRODUCTION</span><h3>에스테이트 소개</h3><p>언제 어디서나 원하는 사람이면 누구나 쉽게 학습할 수 있는 환경</p></a><a class="identity-card" href="#estate" data-detail="vision"><span class="card-no">02 / VISION</span><h3>회사 비전</h3><p>Total Learning Platform을 구축합니다.</p></a><a class="identity-card" href="#estate" data-detail="ci"><span class="card-no">03 / CORPORATE IDENTITY</span><h3>CI 소개</h3><p>다양한 사업영역이 유기적으로 결합하여 시너지를 창출하는 모습</p></a><a class="identity-card" href="#business"><span class="card-no">04 / BUSINESS</span><h3>사업분야</h3><p>우수한 콘텐츠를 개발하고 제공하여 학습효과를 극대화합니다.</p></a></div></section>
+ <section class="content" id="business"><div class="section-label">Business</div><h2>에스테이트 사업분야</h2><div class="business-list">
+ <article class="business-row"><span class="num">01</span><h3>EST 원격평생교육원</h3><p>온라인 직무교육<br>법정의무교육 위탁운영</p><a href="https://edu.est.so/" target="_blank" rel="noopener">더 알아보기</a></article>
+ <article class="business-row"><span class="num">02</span><h3>경비보안교육원</h3><p>온라인 경비직무교육<br>오프라인 경비직무교육</p><a href="https://secedu.est.so/" target="_blank" rel="noopener">더 알아보기</a></article>
+ <article class="business-row"><span class="num">03</span><h3>경비업 컨설팅</h3><p>경비지도사 선임컨설팅<br>경찰청 지도점검 대비 컨설팅</p><a href="https://sec.est.so/" target="_blank" rel="noopener">더 알아보기</a></article>
+ <article class="business-row"><span class="num">04</span><h3>미래내일일경험사업</h3><p>일자리 지원사업<br>사업지원 서비스업</p><a href="https://work.est.so/" target="_blank" rel="noopener">더 알아보기</a></article>
+ <article class="business-row"><span class="num">05</span><h3>콘텐츠 개발연구소</h3><p>자체 온라인 교육콘텐츠<br>개발/임대 사업</p><a href="https://con.est.so/" target="_blank" rel="noopener">더 알아보기</a></article></div></section>
+ <section class="content contact" id="contact"><div class="contact-wrap"><div><div class="section-label">Contact</div><h2>고객의 더 나은 미래를 위해<br>최선을 다하겠습니다</h2></div><dl><div><dt>Address.</dt><dd>서울 강서구 마곡서로 152<br>두산더랜드타워 B동 311호</dd></div><div><dt>Tel.</dt><dd><a href="tel:16444188">1644-4188</a></dd></div><div><dt>E-mail.</dt><dd><a href="mailto:sec@hrdncs.co.kr">sec@hrdncs.co.kr</a></dd></div></dl></div></section>
+</main>
+<footer><div class="footer-top"><a class="brand" href="#main"><strong>EST</strong><span>에스테이트<br>ESTATE</span></a><details class="family"><summary>Family Site</summary><div><a href="https://edu.est.so/" target="_blank" rel="noopener">EST 원격평생교육원</a><a href="#main">(주)에스테이트</a><a href="https://secedu.est.so/" target="_blank" rel="noopener">경비보안교육원</a><a href="https://work.est.so/" target="_blank" rel="noopener">미래내일일경험사업</a><a href="https://sec.est.so/" target="_blank" rel="noopener">경비업 컨설팅</a><a href="https://con.est.so/" target="_blank" rel="noopener">콘텐츠개발연구소</a></div></details></div><div class="company"><p>(주)에스테이트 &nbsp; 대표이사 송세환 &nbsp; 사업자등록번호 789-86-00558</p><p>서울 강서구 마곡서로 152 두산더랜드타워 B동 311호</p><p>Tel. 1644-4188 &nbsp; Fax. 02-6929-1333 &nbsp; E-mail. sec@hrdncs.co.kr &nbsp; 개인정보처리관리자 이영훈</p></div><p class="copyright">© Estate co.,ltd. All Rights Reserved.</p><p class="demo-note">비공식 목업 · 공개 본문 기반 구성 · 원본 이미지 및 화면 배치 미대조</p></footer>
+<div class="floating"><a href="#contact">상담 신청하기</a><button id="to-top" aria-label="페이지 맨 위로">TOP</button></div>
+<dialog id="detail-dialog"><button class="close" aria-label="닫기">×</button><h2 id="detail-title"></h2><p id="detail-body"></p></dialog>
+<script>
+(()=>{
+const slides=[
+ ['교육의 즐거움을 제공하는\n종합 컨설팅 교육기업,\n에스테이트','에스테이트는 누구나 학습할 수 있는 환경을 제공합니다','#about','자세히 보기'],
+ ['EST 원격평생교육원은\n발전하는 당신을 응원합니다!','양질의 평생교육 콘텐츠를 제공하는 Total Learing Platform','https://edu.est.so/','사이트 바로가기'],
+ ['끝없는 성장!\n경비보안 교육원이\n함께 하겠습니다','에스테이트는 여러분의 배움의 여정을 응원합니다','https://secedu.est.so/','사이트 바로가기'],
+ ['전문적인 인력관리로\n안전과 자산을 지켜드립니다','컨설팅 기법의 연구개발을 통해 고객의 성장을 모색합니다','https://sec.est.so/','사이트 바로가기'],
+ ['대한민국 청년의 내일을 위한\n미래내일 일경험 사업','기업의 다양한 조직문화와 실무를 체험하고 지원금까지 받아가세요','https://work.est.so/','사이트 바로가기'],
+ ['고객의 니즈를 맞춘\n맞춤형 이러닝 콘텐츠 제작','고객이 원하는 방식과 형식의 고품질 콘텐츠를 제공합니다','https://con.est.so/','사이트 바로가기']
+];
+const $=id=>document.getElementById(id);let current=0,timer=null;
+function show(n){current=(n+slides.length)%slides.length;const s=slides[current];$('hero-title').textContent=s[0];$('hero-description').textContent=s[1];$('hero-link').href=s[2];$('hero-link').textContent=s[3];if(s[2].startsWith('https')){$('hero-link').target='_blank';$('hero-link').rel='noopener'}else{$('hero-link').removeAttribute('target')}$('current-slide').textContent=String(current+1).padStart(2,'0');$('slide-progress').style.width=(current+1)/slides.length*100+'%'}
+$('previous').onclick=()=>show(current-1);$('next').onclick=()=>show(current+1);
+function stop(){clearInterval(timer);timer=null;$('pause').textContent='재생';$('pause').setAttribute('aria-label','자동 전환 시작');$('pause').setAttribute('aria-pressed','false')}
+$('pause').onclick=()=>{if(timer){stop()}else{timer=setInterval(()=>show(current+1),6000);$('pause').textContent='정지';$('pause').setAttribute('aria-label','자동 전환 정지');$('pause').setAttribute('aria-pressed','true')}};
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
+const menu=document.querySelector('.menu'),nav=$('navigation');menu.onclick=()=>{const opened=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(opened));menu.setAttribute('aria-label',opened?'메뉴 닫기':'메뉴 열기');menu.textContent=opened?'×':'☰'};
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','메뉴 열기');menu.textContent='☰'}));
+$('to-top').onclick=()=>document.getElementById('main').scrollIntoView();
+const detail={vision:['회사 비전','개인과 기업, 국가의 가치향상과 전문성 강화를 위해 Total Learning Platform을 구축합니다.'],ci:['CI 소개','다양한 사업영역이 유기적으로 결합하여 시너지를 창출하는 모습을 형상화하였습니다.'],organization:['조직도','이 목업에는 조직도 원본이 포함되어 있지 않습니다. 원본 자료를 제공하면 해당 화면을 구성할 수 있습니다.']};
+document.querySelectorAll('[data-detail]').forEach(a=>a.onclick=e=>{e.preventDefault();const d=detail[a.dataset.detail];$('detail-title').textContent=d[0];$('detail-body').textContent=d[1];$('detail-dialog').showModal()});$('detail-dialog').querySelector('.close').onclick=()=>$('detail-dialog').close();$('detail-dialog').addEventListener('click',e=>{if(e.target===$('detail-dialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close()}});
+const sections=[...document.querySelectorAll('main>section')];const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)document.querySelectorAll('.side-nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))})},{rootMargin:'-20% 0px -50% 0px'});sections.forEach(s=>observer.observe(s));
+})();
+</script>
+</body></html>
